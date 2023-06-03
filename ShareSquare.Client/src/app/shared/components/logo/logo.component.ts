@@ -4,6 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-logo',
   standalone: true,
   templateUrl: './logo.component.html',
-  styleUrls: ['./logo.component.scss'],
+  styleUrls: ['./logo.component.scss']
 })
 export class LogoComponent {}
