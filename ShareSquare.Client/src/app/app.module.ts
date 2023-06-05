@@ -17,6 +17,7 @@ import { AppComponent } from './app.component';
     LogoComponent,
     NavComponent
   ],
+
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent]
