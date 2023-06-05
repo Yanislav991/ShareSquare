@@ -2,12 +2,12 @@
 
 body {
   min-width: 320px;
-  background: $c-white;
-  font-family: $ff-sans-serif;
-  font-weight: $font-weight-base;
-  font-size: $font-size-base;
-  line-height: $line-height-base;
-  color: $c-black;
+  background: var(--c-white);
+  font-family: var(--ff-sans-serif);
+  font-weight: var(--font-weight-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--c-black);
 }
 
 a {
@@ -35,7 +35,7 @@ h4,
 h5,
 .h6,
 h6 {
-  margin-bottom: calc(#{$line-height-base}em / 2);
+  margin-bottom: calcvar((#{var(--line-height-base)}em / 2));
 }
 
 .h1,
@@ -75,7 +75,7 @@ dl,
 hr,
 table,
 blockquote {
-  margin-bottom: #{$line-height-base}em;
+  margin-bottom: var(#{var(--line-height-base)}em);
 }
 
 h1:last-child,
