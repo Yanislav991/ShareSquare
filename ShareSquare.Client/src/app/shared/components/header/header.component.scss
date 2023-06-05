@@ -1,7 +1,12 @@
+@import 'mixins';
+
 .header {
+  padding: var(--spacing-1);
+  background-color: var(--c-white);
+  box-shadow: var(--shadow-primary);
+
   .header__inner {
-    display: flex;
-    flex-wrap: wrap;
+    @include display-flex;
     justify-content: space-between;
   }
 }

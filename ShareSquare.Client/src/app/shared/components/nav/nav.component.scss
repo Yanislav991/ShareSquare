@@ -1,0 +1,17 @@
+@import 'mixins';
+
+.nav {
+  ul {
+    @include display-flex;
+    margin: -10px;
+  }
+
+  ul li {
+    padding: 10px;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--c-blue-1);
+  }
+}

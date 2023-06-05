@@ -6,6 +6,11 @@
   }
 }
 
+@mixin display-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 @mixin breakpoint-up($size) {
   @media (min-width: $size) {
     @content;
