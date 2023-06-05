@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ShareSquare.Server.Models;
 using ShareSquare.Server.Services.Contracts;
@@ -15,6 +16,7 @@ namespace ShareSquare.Server.Controllers
             _postService = postService;
         }
 
+        [Authorize]
         [HttpGet("all")]
         public async Task<ActionResult<IEnumerable<PostDto>>> Get()
         {
