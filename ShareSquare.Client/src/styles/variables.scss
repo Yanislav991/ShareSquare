@@ -1,33 +1,31 @@
 :root {
-  --font-size-base: 16px;
+  /* Font parameters */
+  --font-size-base: 62.5%;
   --font-weight-base: 400;
   --line-height-base: 1.2;
 
+  /* Fonts */
   --ff-sans-serif: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --ff-serif: Georgia, 'Times New Roman', Times, serif;
   --ff-cursive: 'Nosifer', cursive;
 
+  /* Animations duration */
   --t-duration: 0.4s;
 
+  /* Shell width and gutters */
   --shell-max-width: 1140px;
   --shell-gutter: 30px;
   --shell-gutter-tablet: 20px;
   --shell-gutter-mobile: 15px;
 
+  /* Colors */
   --c-black: #000;
   --c-white: #fff;
-  --c-yellow: #fff0ab;
-  --c-orange: #ff964f;
-  --c-base: #957dad;
-  --c-pink: #d291bc;
-  --c-red: #ff6666;
 
-  --responsive-ios: 812px;
-
+  /* Responsive Sizes */
   --mobile-small: 374px;
   --mobile-medium: 575px;
   --mobile: 767px;
-  --admin-bar: 782px;
   --tablet: 1023px;
   --small-desktop: 1199px;
   --large-desktop: 1399px;
