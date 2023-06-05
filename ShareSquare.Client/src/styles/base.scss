@@ -1,11 +1,14 @@
 @import './variables.scss';
 
+html {
+  font-size: var(--font-size-base);
+}
+
 body {
   min-width: 320px;
   background: var(--c-white);
   font-family: var(--ff-sans-serif);
   font-weight: var(--font-weight-base);
-  font-size: var(--font-size-base);
   line-height: var(--line-height-base);
   color: var(--c-black);
 }
@@ -75,6 +78,7 @@ dl,
 hr,
 table,
 blockquote {
+  font-size: 1.6rem;
   margin-bottom: var(#{var(--line-height-base)}em);
 }
 
