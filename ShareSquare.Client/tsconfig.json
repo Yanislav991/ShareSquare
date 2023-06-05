@@ -4,8 +4,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@components/*": ["src/app/shared/components/*"],
-      "@services/*": ["src/app/shared/services/*"],
+      "@shared/*": ["src/app/shared/*"],
       "@pages/*": ["src/app/pages/*"]
     },
     "outDir": "./dist/out-tsc",
