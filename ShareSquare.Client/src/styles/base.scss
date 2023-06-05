@@ -39,7 +39,8 @@ h4,
 h5,
 .h6,
 h6 {
-  margin-bottom: calcvar((#{var(--line-height-base)}em / 2));
+  font-weight: 500;
+  margin-bottom: calc(#{var(--line-height-base)}em / 2);
 }
 
 .h1,
