@@ -4,6 +4,7 @@
   padding: var(--spacing-1);
   background-color: var(--c-white);
   box-shadow: var(--shadow-primary);
+  margin-bottom: 30px;
 
   .header__inner {
     @include display-flex;

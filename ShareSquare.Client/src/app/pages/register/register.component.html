@@ -1,7 +1,40 @@
-<section class="section-register">
-  <h2 class="section-title">Register</h2>
+<section class="section section--register">
+  <h2 class="section__title">Register</h2>
 
   <div class="section__form">
-    <form [formGroup]="registerFormData"></form>
+    <!-- <form [formGroup]="registerFormData"></form> -->
+    <form class="form">
+      <div class="form__row">
+        <mat-form-field appearance="outline">
+          <mat-label>First Name</mat-label>
+          <input matInput placeholder="Placeholder" />
+          <!-- <mat-error *ngIf="erFormData.value.">{{getErrorMessage()}}</mat-error> -->
+        </mat-form-field>
+      </div>
+
+      <div class="form__row">
+        <mat-form-field appearance="outline">
+          <mat-label>Last Name</mat-label>
+          <input matInput placeholder="Placeholder" />
+          <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+        </mat-form-field>
+      </div>
+
+      <div class="form__row">
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Placeholder" />
+          <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+        </mat-form-field>
+      </div>
+
+      <div class="form__row">
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput placeholder="Placeholder" />
+          <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+        </mat-form-field>
+      </div>
+    </form>
   </div>
 </section>
