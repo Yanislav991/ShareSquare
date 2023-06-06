@@ -1,9 +1,58 @@
 <nav class="nav">
   <ul>
-    <li><a routerLink="">Home</a></li>
-    <li><a routerLink="/profile/id">Profile</a></li>
-    <li><a routerLink="/logout">Logout</a></li>
-    <li><a routerLink="/login">Login</a></li>
-    <li><a routerLink="/register">Register</a></li>
+    <li>
+      <button
+        routerLink=""
+        title="Home"
+        mat-icon-button
+        aria-label="Home button"
+      >
+        <mat-icon>home</mat-icon>
+      </button>
+    </li>
+
+    <li>
+      <button
+        routerLink="/profile/id"
+        mat-icon-button
+        aria-label="Login button"
+        title="My Profile"
+      >
+        <mat-icon>account_circle</mat-icon>
+      </button>
+    </li>
+
+    <li>
+      <button
+        routerLink="/logout"
+        title="I Want to gerara here"
+        mat-icon-button
+        aria-label="Logout button"
+      >
+        <mat-icon>logout</mat-icon>
+      </button>
+    </li>
+
+    <li>
+      <button
+        routerLink="/login"
+        title="Login"
+        mat-icon-button
+        aria-label="Login button"
+      >
+        <mat-icon>login</mat-icon>
+      </button>
+    </li>
+
+    <li>
+      <button
+        routerLink="/register"
+        mat-icon-button
+        title="Register"
+        aria-label="Register button"
+      >
+        <mat-icon>badge</mat-icon>
+      </button>
+    </li>
   </ul>
 </nav>

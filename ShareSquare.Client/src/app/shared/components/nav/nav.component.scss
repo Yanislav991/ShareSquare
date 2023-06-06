@@ -3,14 +3,14 @@
 .nav {
   ul {
     @include display-flex;
-    margin: -10px;
+    margin: -5px;
   }
 
   ul li {
-    padding: 10px;
+    padding: 5px;
   }
 
-  a {
+  button {
     text-decoration: none;
     color: var(--c-blue-1);
   }
