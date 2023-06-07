@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -13,20 +15,35 @@ import { MatInputModule } from '@angular/material/input';
     ReactiveFormsModule,
     MatIconModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatButtonModule
   ],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
-  registerFormData = this.formBuild.group({
-    email: ['', Validators.email, Validators.required],
-    password: ['', Validators.minLength(4), Validators.required]
+  url = 'http://localhost:3000';
+  http!: HttpClient;
+  registrationData: FormGroup = this.formBuild.group({
+    email: [''],
+    password: ['']
   });
 
   constructor(private formBuild: FormBuilder) {}
 
-  // onSubmit() {
-  //   console.log(this.registerFormData.value);
-  // }
+  onSubmit() {
+    if (this.registrationData.invalid) {
+      console.log(this.registrationData);
+      return;
+    }
+
+    const { email, password } = this.registrationData.value;
+    const body = { email, password };
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+    this.http.post(this.url, body, { headers: headers }).subscribe(
+      response => console.log(response),
+      error => console.error(error)
+    );
+  }
 }

@@ -1,23 +1,44 @@
 <section class="section section--register">
   <h2 class="section__title">Register</h2>
 
+  <p *ngIf="registrationData">
+    {{ registrationData.value | json }}
+  </p>
+
   <div class="section__form">
-    <!-- <form [formGroup]="registerFormData"></form> -->
-    <form class="form">
+    <form [formGroup]="registrationData" (ngSubmit)="onSubmit()" class="form">
       <div class="form__row">
         <mat-form-field appearance="outline">
-          <mat-label>Email</mat-label>
-          <input matInput placeholder="Placeholder" />
-          <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+          <mat-label for="email">Email</mat-label>
+          <input
+            matInput
+            formControlName="email"
+            #email
+            id="email"
+            [email]="true"
+            [required]="true"
+          />
+          <mat-error *ngIf="email">ops email is bad</mat-error>
         </mat-form-field>
       </div>
 
       <div class="form__row">
         <mat-form-field appearance="outline">
-          <mat-label>Password</mat-label>
-          <input matInput placeholder="Placeholder" />
-          <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+          <mat-label for="password">Password</mat-label>
+          <input
+            matInput
+            formControlName="password"
+            id="password"
+            #password
+            [minlength]="6"
+            [required]="true"
+          />
+          <mat-error *ngIf="password">ops password is bad</mat-error>
         </mat-form-field>
+      </div>
+
+      <div class="form__row">
+        <button mat-stroked-button color="primary">Primary</button>
       </div>
     </form>
   </div>
