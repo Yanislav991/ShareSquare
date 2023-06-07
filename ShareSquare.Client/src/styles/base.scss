@@ -97,7 +97,7 @@ ol:last-child,
 dl:last-child,
 table:last-child,
 blockquote:last-child {
-  margin-bottom: 0;
+  margin-bottom: var(--spacing-0);
 }
 
 /* MUI Icons */
@@ -155,18 +155,4 @@ blockquote:last-child {
 }
 .material-icons.md-light.md-inactive {
   color: rgba(255, 255, 255, 0.3);
-}
-
-/* Section */
-
-.section {
-  background-color: var(--c-white);
-  box-shadow: var(--shadow-primary);
-  padding: var(--spacing-3);
-  border-radius: 8px;
-
-  .section__title {
-    text-align: center;
-    margin-bottom: var(--spacing-2);
-  }
 }

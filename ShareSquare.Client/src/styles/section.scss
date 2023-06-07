@@ -1,0 +1,13 @@
+/* Section */
+
+.section {
+  background-color: var(--c-white);
+  box-shadow: var(--shadow-primary);
+  padding: var(--spacing-3);
+  border-radius: 8px;
+
+  .section__title {
+    text-align: center;
+    margin-bottom: var(--spacing-2);
+  }
+}

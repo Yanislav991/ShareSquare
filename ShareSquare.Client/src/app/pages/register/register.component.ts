@@ -19,14 +19,12 @@ import { MatInputModule } from '@angular/material/input';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
-  registerFormData = this.fb.group({
-    firstName: ['', Validators.required],
-    lastName: ['', Validators.required],
+  registerFormData = this.formBuild.group({
     email: ['', Validators.email, Validators.required],
-    password: ['', Validators.required, Validators.minLength(4)]
+    password: ['', Validators.minLength(4), Validators.required]
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private formBuild: FormBuilder) {}
 
   // onSubmit() {
   //   console.log(this.registerFormData.value);
