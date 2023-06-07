@@ -28,6 +28,7 @@
           <input
             matInput
             formControlName="password"
+            type="password"
             id="password"
             #password
             [minlength]="6"
@@ -37,8 +38,14 @@
         </mat-form-field>
       </div>
 
-      <div class="form__row">
-        <button mat-stroked-button color="primary">Primary</button>
+      <div class="form__row form__row--actions">
+        <button
+          mat-stroked-button
+          color="primary"
+          [disabled]="!registrationData.valid"
+        >
+          Register
+        </button>
       </div>
     </form>
   </div>

@@ -7,8 +7,10 @@
   .form__row {
     margin-bottom: var(--spacing-2);
 
-    * {
+    .mdc-text-field,
+    .mat-mdc-form-field {
       width: 100%;
+      max-width: 100%;
     }
 
     &:last-child {

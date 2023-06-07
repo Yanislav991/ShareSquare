@@ -1,0 +1,13 @@
+.mdc-button {
+  padding: var(--spacing-4);
+
+  &.mdc-button--outlined:not([disabled]) {
+    color: var(--c-blue-1);
+    border-color: currentColor;
+
+    &:hover {
+      background-color: var(--c-blue-1);
+      color: var(--c-white);
+    }
+  }
+}
