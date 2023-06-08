@@ -7,17 +7,17 @@ import { Router } from '@angular/router';
 export class RegisterService {
   constructor(private http: HttpClient, private router: Router) {}
 
-  registerUser(url: string, userData: FormGroup) {
+  registerUser(url: string, userData: any) {
     if (userData.invalid) {
       throw new Error('o panagiamu');
     }
 
-    const body = userData?.value;
+    const body = userData;
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       accept: '*/*'
     });
-
+    console.log(body)
     return this.http.post(url, body, { headers: headers });
   }
 }

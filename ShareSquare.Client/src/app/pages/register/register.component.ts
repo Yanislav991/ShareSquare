@@ -19,6 +19,7 @@ export class RegisterComponent {
   constructor(private registerService: RegisterService) {}
 
   onSubmitForm(data: FormGroup) {
+    console.log(data)
     this.registerService.registerUser(this.url, data).subscribe(data => {
       console.log(data);
     });

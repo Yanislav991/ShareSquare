@@ -11,6 +11,7 @@ using ShareSquare.Server.Services.Contracts;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 // Add services to the container.
 
@@ -57,6 +58,14 @@ builder.Services
     })
     .AddEntityFrameworkStores<ShareSquareContext>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CorsPolicy",
+        builder => builder.AllowAnyOrigin()
+        .AllowAnyMethod()
+        .AllowAnyHeader());
+});
+
 using (var client = new ShareSquareContext())
 {
     client.Database.EnsureCreated();
@@ -71,6 +80,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("CorsPolicy");
 
 app.UseAuthentication();
 app.UseAuthorization();
