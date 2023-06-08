@@ -16,16 +16,6 @@ export class RegisterService {
     const body = { email, password };
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-    return this.http.post(url, body, { headers: headers }).subscribe({
-      next(value) {
-        console.log(value);
-      },
-      error(err) {
-        console.error(err);
-      },
-      complete() {
-        console.log('complete');
-      }
-    });
+    return this.http.post(url, body, { headers: headers });
   }
 }

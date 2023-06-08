@@ -1,7 +1,10 @@
-<section class="section section--register">
+<section class="section">
   <h2 class="section__title">Register</h2>
 
   <div class="section__form">
-    <app-auth-form (formData)="onSubmitForm($event)"></app-auth-form>
+    <app-auth-form
+      [btnText]="'Register'"
+      (formData)="onSubmitForm($event)"
+    ></app-auth-form>
   </div>
 </section>

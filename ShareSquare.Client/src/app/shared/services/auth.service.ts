@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { Subject } from 'rxjs';
 
 @Injectable()
@@ -7,8 +8,8 @@ export class AuthService {
 
   constructor() {}
 
-  login(email: string, password: string) {
-    this.sub.next({ email, password });
+  login(url: string, data: FormGroup) {
+    this.sub.next(data);
   }
 
   logout() {

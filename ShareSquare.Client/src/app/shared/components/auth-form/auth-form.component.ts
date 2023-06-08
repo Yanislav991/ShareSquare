@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -27,6 +27,7 @@ import {
   styleUrls: ['./auth-form.component.scss']
 })
 export class AuthFormComponent {
+  @Input() btnText: string = 'btn';
   @Output() formData = new EventEmitter();
 
   authFormData: FormGroup = this.formBuilder.group({
