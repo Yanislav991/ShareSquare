@@ -12,7 +12,7 @@ export class RegisterService {
       throw new Error('o panagiamu');
     }
 
-    const { email, password } = userData.value;
+    const { email, password } = userData?.value;
     const body = { email, password };
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
 

@@ -1,52 +1,7 @@
 <section class="section section--register">
   <h2 class="section__title">Register</h2>
 
-  <p *ngIf="registrationData">
-    {{ registrationData.value | json }}
-  </p>
-
   <div class="section__form">
-    <form [formGroup]="registrationData" (ngSubmit)="onSubmit()" class="form">
-      <div class="form__row">
-        <mat-form-field appearance="outline">
-          <mat-label for="email">Email</mat-label>
-          <input matInput formControlName="email" />
-          <mat-error *ngIf="email?.errors?.required"
-            >Email is required</mat-error
-          >
-          <mat-error *ngIf="email?.errors?.email"
-            >Invalid email format</mat-error
-          >
-        </mat-form-field>
-      </div>
-
-      <div class="form__row">
-        <mat-form-field appearance="outline">
-          <mat-label for="password">Password</mat-label>
-          <input
-            matInput
-            formControlName="password"
-            type="password"
-            id="password"
-          />
-          <mat-error *ngIf="password?.errors?.required"
-            >Password is required</mat-error
-          >
-          <mat-error *ngIf="password?.errors?.minlength"
-            >Password should be at least 6 characters long.</mat-error
-          >
-        </mat-form-field>
-      </div>
-
-      <div class="form__row form__row--actions">
-        <button
-          mat-stroked-button
-          color="primary"
-          [disabled]="!registrationData.valid"
-        >
-          Register
-        </button>
-      </div>
-    </form>
+    <app-auth-form (formData)="onSubmitForm($event)"></app-auth-form>
   </div>
 </section>
