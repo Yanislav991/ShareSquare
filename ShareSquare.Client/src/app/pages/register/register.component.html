@@ -3,6 +3,10 @@
 
   <p *ngIf="registrationData">
     {{ registrationData.value | json }}
+
+    <br />
+
+    {{ registrationData.valid }}
   </p>
 
   <div class="section__form">
@@ -10,15 +14,13 @@
       <div class="form__row">
         <mat-form-field appearance="outline">
           <mat-label for="email">Email</mat-label>
-          <input
-            matInput
-            formControlName="email"
-            #email
-            id="email"
-            [email]="true"
-            [required]="true"
-          />
-          <mat-error *ngIf="email">ops email is bad</mat-error>
+          <input matInput formControlName="email" />
+          <mat-error *ngIf="email?.errors?.required"
+            >Email is required</mat-error
+          >
+          <mat-error *ngIf="email?.errors?.email"
+            >Invalid email format</mat-error
+          >
         </mat-form-field>
       </div>
 
@@ -30,11 +32,13 @@
             formControlName="password"
             type="password"
             id="password"
-            #password
-            [minlength]="6"
-            [required]="true"
           />
-          <mat-error *ngIf="password">ops password is bad</mat-error>
+          <mat-error *ngIf="password?.errors?.required"
+            >Password is required</mat-error
+          >
+          <mat-error *ngIf="password?.errors?.minlength"
+            >Password should be at least 6 characters long.</mat-error
+          >
         </mat-form-field>
       </div>
 

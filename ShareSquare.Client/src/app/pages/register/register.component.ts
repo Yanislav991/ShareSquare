@@ -1,11 +1,17 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators
+} from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { RegisterService } from '@shared/services/register.service';
 
 @Component({
   selector: 'app-register',
@@ -16,34 +22,35 @@ import { MatInputModule } from '@angular/material/input';
     MatIconModule,
     MatInputModule,
     MatFormFieldModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule
   ],
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
+  providers: [HttpClient, RegisterService]
 })
 export class RegisterComponent {
   url = 'http://localhost:3000';
-  http!: HttpClient;
+
   registrationData: FormGroup = this.formBuild.group({
-    email: [''],
-    password: ['']
+    email: [null, [Validators.required, Validators.email]],
+    password: [null, [Validators.required, Validators.minLength(6)]]
   });
 
-  constructor(private formBuild: FormBuilder) {}
+  constructor(
+    private formBuild: FormBuilder,
+    private registerService: RegisterService
+  ) {}
+
+  get email() {
+    return this.registrationData.get('email');
+  }
+
+  get password() {
+    return this.registrationData.get('password');
+  }
 
   onSubmit() {
-    if (this.registrationData.invalid) {
-      console.log(this.registrationData);
-      return;
-    }
-
-    const { email, password } = this.registrationData.value;
-    const body = { email, password };
-    const headers = new HttpHeaders().set('Content-Type', 'application/json');
-
-    this.http.post(this.url, body, { headers: headers }).subscribe(
-      response => console.log(response),
-      error => console.error(error)
-    );
+    this.registerService.registerUser(this.url, this.registrationData);
   }
 }

@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { importProvidersFrom } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -12,7 +13,8 @@ bootstrapApplication(AppComponent, {
       BrowserModule,
       AppRoutingModule,
       MatIconModule,
-      MatButtonModule
+      MatButtonModule,
+      HttpClientModule
     ),
     provideAnimations()
   ]
