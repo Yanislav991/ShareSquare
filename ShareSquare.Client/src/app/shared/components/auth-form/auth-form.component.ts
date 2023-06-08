@@ -32,6 +32,7 @@ export class AuthFormComponent {
 
   authFormData: FormGroup = this.formBuilder.group({
     email: [null, [Validators.required, Validators.email]],
+    username: [null, [Validators.required, Validators.minLength(3)]],
     password: [null, [Validators.required, Validators.minLength(6)]]
   });
 
@@ -43,6 +44,10 @@ export class AuthFormComponent {
 
   get password() {
     return this.authFormData.get('password');
+  }
+
+  get username() {
+    return this.authFormData.get('username');
   }
 
   onSubmit(data: FormData) {

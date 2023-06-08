@@ -1,6 +1,8 @@
 <nav class="nav">
   <ul>
-    <div *ngIf="userData; then userIsLoged; else userIsNotLoged"></div>
+    <ng-template
+      *ngIf="userData; then userIsLoged; else userIsNotLoged"
+    ></ng-template>
     <ng-template #userIsLoged>
       <li>
         <button

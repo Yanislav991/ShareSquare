@@ -17,6 +17,19 @@
 
   <div class="form__row">
     <mat-form-field appearance="outline">
+      <mat-label for="username">Username</mat-label>
+      <input matInput formControlName="username" />
+      <mat-error *ngIf="username?.errors?.required"
+        >Username is required</mat-error
+      >
+      <mat-error *ngIf="username?.errors?.username"
+        >Invalid username format</mat-error
+      >
+    </mat-form-field>
+  </div>
+
+  <div class="form__row">
+    <mat-form-field appearance="outline">
       <mat-label for="password">Password</mat-label>
       <input
         matInput

@@ -12,9 +12,11 @@ export class RegisterService {
       throw new Error('o panagiamu');
     }
 
-    const { email, password } = userData?.value;
-    const body = { email, password };
-    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    const body = userData?.value;
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      accept: '*/*'
+    });
 
     return this.http.post(url, body, { headers: headers });
   }

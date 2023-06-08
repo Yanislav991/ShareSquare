@@ -14,11 +14,13 @@ import { RegisterService } from '@shared/services/register.service';
   providers: [HttpClient, RegisterService]
 })
 export class RegisterComponent {
-  url = 'http://localhost:3000';
+  url = 'https://localhost:7195/Auth/register';
 
   constructor(private registerService: RegisterService) {}
 
   onSubmitForm(data: FormGroup) {
-    this.registerService.registerUser(this.url, data);
+    this.registerService.registerUser(this.url, data).subscribe(data => {
+      console.log(data);
+    });
   }
 }
