@@ -34,7 +34,7 @@ export class AuthService {
       .pipe(catchError(this.handleError('body', body)));
   }
 
-  login(url: string, data: FormGroup) {
+  login(data: FormGroup) {
     this.sub.next(data);
   }
 
@@ -46,7 +46,7 @@ export class AuthService {
     return this.sub;
   }
 
-  setAuthData(data: any) {
+  setAuthData(data: IUser | null) {
     this.sub.next(data);
   }
 }

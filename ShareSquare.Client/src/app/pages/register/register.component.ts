@@ -18,6 +18,17 @@ export class RegisterComponent {
   constructor(private registerService: AuthService, private router: Router) {}
 
   onSubmitForm(data: IUser) {
-    return this.registerService.register(data);
+    return this.registerService.register(data).subscribe({
+      next: data => {
+        this.router.navigate(['/login']);
+        console.log(data);
+      },
+      error: error => {
+        console.log(error);
+      },
+      complete: () => {
+        console.log('complete');
+      }
+    });
   }
 }

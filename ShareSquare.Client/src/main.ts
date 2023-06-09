@@ -11,8 +11,8 @@ bootstrapApplication(AppComponent, {
   providers: [
     importProvidersFrom(
       BrowserModule,
-      HttpClientModule,
       AppRoutingModule,
+      HttpClientModule,
       MatIconModule,
       MatButtonModule
     ),
