@@ -11,10 +11,10 @@ bootstrapApplication(AppComponent, {
   providers: [
     importProvidersFrom(
       BrowserModule,
+      HttpClientModule,
       AppRoutingModule,
       MatIconModule,
-      MatButtonModule,
-      HttpClientModule
+      MatButtonModule
     ),
     provideAnimations()
   ]

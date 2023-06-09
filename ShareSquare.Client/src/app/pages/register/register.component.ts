@@ -1,27 +1,23 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { AuthFormComponent } from '@shared/components/auth-form/auth-form.component';
-import { RegisterService } from '@shared/services/register.service';
+import { Router } from '@angular/router';
+import { RegisterFormComponent } from '@shared/components/register-form/register-form.component';
+import { AuthService } from '@shared/services/auth.service';
+import { IUser } from '@shared/types';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, AuthFormComponent],
+  imports: [CommonModule, RegisterFormComponent],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
-  providers: [HttpClient, RegisterService]
+  providers: [HttpClient, AuthService]
 })
 export class RegisterComponent {
-  url = 'https://localhost:7195/Auth/register';
+  constructor(private registerService: AuthService, private router: Router) {}
 
-  constructor(private registerService: RegisterService) {}
-
-  onSubmitForm(data: FormGroup) {
-    console.log(data)
-    this.registerService.registerUser(this.url, data).subscribe(data => {
-      console.log(data);
-    });
+  onSubmitForm(data: IUser) {
+    return this.registerService.register(data);
   }
 }

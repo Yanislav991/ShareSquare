@@ -13,7 +13,7 @@ import {
 } from '@angular/forms';
 
 @Component({
-  selector: 'app-auth-form',
+  selector: 'app-login-form',
   standalone: true,
   imports: [
     CommonModule,
@@ -23,31 +23,26 @@ import {
     MatFormFieldModule,
     MatButtonModule
   ],
-  templateUrl: './auth-form.component.html',
-  styleUrls: ['./auth-form.component.scss']
+  templateUrl: './login-form.component.html',
+  styleUrls: ['./login-form.component.scss']
 })
-export class AuthFormComponent {
+export class LoginFormComponent {
   @Input() btnText: string = 'btn';
   @Output() formData = new EventEmitter();
 
-  authFormData: FormGroup = this.formBuilder.group({
+  loginFormData: FormGroup = this.formBuilder.group({
     email: [null, [Validators.required, Validators.email]],
-    username: [null, [Validators.required, Validators.minLength(3)]],
     password: [null, [Validators.required, Validators.minLength(6)]]
   });
 
   constructor(private formBuilder: FormBuilder) {}
 
   get email() {
-    return this.authFormData.get('email');
+    return this.loginFormData.get('email');
   }
 
   get password() {
-    return this.authFormData.get('password');
-  }
-
-  get username() {
-    return this.authFormData.get('username');
+    return this.loginFormData.get('password');
   }
 
   onSubmit(data: FormData) {

@@ -1,11 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
 
 @Injectable()
 export class RegisterService {
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient) {}
 
   registerUser(url: string, userData: any) {
     if (userData.invalid) {
@@ -17,7 +15,6 @@ export class RegisterService {
       'Content-Type': 'application/json',
       accept: '*/*'
     });
-    console.log(body)
     return this.http.post(url, body, { headers: headers });
   }
 }

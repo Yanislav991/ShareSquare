@@ -1,13 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { AuthFormComponent } from '@shared/components/auth-form/auth-form.component';
+import { LoginFormComponent } from '@shared/components/login-form/login-form.component';
 import { AuthService } from '@shared/services/auth.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, AuthFormComponent],
+  imports: [CommonModule, LoginFormComponent],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
   providers: [AuthService]

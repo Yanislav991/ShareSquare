@@ -1,0 +1,55 @@
+<form
+  [formGroup]="registerFormData"
+  (ngSubmit)="onSubmit(registerFormData.value)"
+  class="form"
+>
+  <div class="form__row">
+    <mat-form-field appearance="outline">
+      <mat-label for="email">Email</mat-label>
+      <input matInput formControlName="email" />
+      <mat-error *ngIf="email?.errors?.required">Email is required</mat-error>
+      <mat-error *ngIf="email?.errors?.email">Invalid email format</mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="form__row">
+    <mat-form-field appearance="outline">
+      <mat-label for="username">Username</mat-label>
+      <input matInput formControlName="username" />
+      <mat-error *ngIf="username?.errors?.required"
+        >Username is required</mat-error
+      >
+      <mat-error *ngIf="username?.errors?.username"
+        >Invalid username format</mat-error
+      >
+    </mat-form-field>
+  </div>
+
+  <div class="form__row">
+    <mat-form-field appearance="outline">
+      <mat-label for="password">Password</mat-label>
+      <input
+        matInput
+        formControlName="password"
+        type="password"
+        id="password"
+      />
+      <mat-error *ngIf="password?.errors?.required"
+        >Password is required</mat-error
+      >
+      <mat-error *ngIf="password?.errors?.minlength"
+        >Password should be at least 6 characters long.</mat-error
+      >
+    </mat-form-field>
+  </div>
+
+  <div class="form__row form__row--actions">
+    <button
+      mat-stroked-button
+      color="primary"
+      [disabled]="!registerFormData.valid"
+    >
+      {{ btnText }}
+    </button>
+  </div>
+</form>
